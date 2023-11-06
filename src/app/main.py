@@ -6,7 +6,7 @@ from typing import List
 from fastapi import APIRouter, File, UploadFile
 import cv2
 import numpy as np
-from app.nougat_run import gat_nougat
+from app.nougat_run import NougatInference
 from fastapi.responses import JSONResponse
 
 
@@ -26,13 +26,16 @@ async def getnougat(files: List[UploadFile] = File(...)):
     for file in files:
         file_bytes = await file.read()
         image = cv2.imdecode(np.frombuffer(file_bytes, np.uint8), cv2.IMREAD_COLOR)
-        text_result = gat_nougat(image)
+        text_result = nougat_inference.gat_nougat(image)
         result.append(text_result)
     return result
 
 
 if __name__ == '__main__':
+    nougat_inference = NougatInference()
+
     # 启动fastAPI
+
     uvicorn.run(app6,
                 port=29001
                 )
