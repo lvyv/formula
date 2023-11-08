@@ -6,19 +6,9 @@
    pip install -r requirements.txt
    ```
 
-2. 在本地下载安装segment anything源码和模型参数
+
    
-   （1）源码本地安装
-   
-   ```shell
-   git clone https://github.com/NormXU/nougat-latex-ocr
-   cd segment-anything
-   pip install -e .
-   ```
-   
-   （2）下载模型文件[【vit_h】](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth)
-   
-   模型文件建议下载到源码根下的新建checkpoints目录，命名sam_vit_h_4b8939.pth。
+
 
 3. 确保test目录下的配置文件model_service.cfg中的配置项是正确的。
    
